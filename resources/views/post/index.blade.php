@@ -4,12 +4,14 @@
 @extends('layouts.layout')
 
 @section('content')
-    @forelse($posts as $post)
-    <h3>{{ $post->title }}</h3>
-    <h3>{{ $post->content }}</h3>
-    <h3>{{ $post->id }}</h3>
+<div class="flex w-full justify-center bg-gray-50">
 
-    @empty
+    <div class="flex w-3/4 flex-col justify-center">
+        @forelse($posts as $post)
+        <a class="text-bold border-b-2 border-gray-300 py-4 pl-5" href="{{ route('edit', $post->id) }}">{{ $post->title }}</a>
+        @empty
         "No hay datos"
-    @endforelse
+        @endforelse
+    </div>
+</div>
 @endsection

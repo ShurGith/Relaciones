@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::get('/post/index', [PostController::class,'index'])->name('index');
 Route::get('/post/create', [PostController::class,'create'])->name('create');
 Route::post('/post/store', [PostController::class,'store'])->name('store');
-Route::post('/post/{post}',[PostController::class,'update'])->name('update');
+Route::put('/post/{post}',[PostController::class,'update'])->name('update');
 Route::get('/post/{post}/edit',[PostController::class,'edit'])->name('edit');
 
 
