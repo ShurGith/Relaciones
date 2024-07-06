@@ -13,6 +13,13 @@
 
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
+    <header>
+        <nav>
+            <li><a href="{{ route('post.index') }}">Inicio</a></li>
+            <li><a href="{{ route('post.create') }}">Nuevo Post</a></li>
+        </nav>
+    </header>
 <h1>Page Titulo</h1>
     </body>
+
 </html>

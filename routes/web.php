@@ -3,19 +3,33 @@
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use  App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/post/index', [PostController::class,'index'])->name('index');
+Route::get('/post/create', [PostController::class,'create'])->name('create');
+Route::post('/post/store', [PostController::class,'store'])->name('store');
+Route::post('/post/{post}',[PostController::class,'update'])->name('update');
+Route::get('/post/{post}/edit',[PostController::class,'edit'])->name('edit');
+
+
+//Route::resource('post', PostController::class);
+
+
+
+/*
 Route::get('prueba', function () {
     $codigo = 4;
-    /*  Comment::create([
+      Comment::create([
     // 'title' => 'Post ' . $codigo,
     'content' => 'Contenido del Comentario ' . $codigo,
     'post_id' => $codigo,
     ]);
     return 'Comentario ' . $codigo . ' creado';
-     */
+
     $comentario = Comment::find($codigo);
    // $comentario
 
@@ -37,3 +51,4 @@ Route::get('pub', function(){
     ]);
     return 'El Comentario ha sido creado';
 });
+*/
