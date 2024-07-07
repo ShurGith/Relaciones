@@ -27,7 +27,6 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-
         return view('post.show', compact('post'));
     }
     public function edit(Post $post)
@@ -44,6 +43,18 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        //
+        //notify()->warning('Welcome to Laravel Notify ⚡️', 'Quieres Borrar');
+        // notify()->preset('aviso-eliminar', ['title' => 'This is the overridden title']);
+        //  connectify('success', 'Connection Found', 'Success Message Here');
+        //return redirect()->route('index')->with('success', 'Post Eliminado.');
+        $post->delete();
+        return redirect()->back();
+    }
+
+    public function alerta(Request $request, Post $post)
+    {
+        //$post = Post::find($id);
+        // dd($post->id);
+        return redirect()->route('index')->with('alerta', $post->id);
     }
 }

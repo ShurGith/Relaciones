@@ -18,6 +18,7 @@ Route::post('/post/store', [PostController::class, 'store'])->name('store');
 Route::put('/post/{post}', [PostController::class, 'update'])->name('update');
 Route::get('/post/{post}/edit', [PostController::class, 'edit'])->name('edit');
 Route::delete('/post/destroy/{post}', [PostController::class, 'destroy'])->name('destroy');
+Route::get('/post/alerta/{post}', [PostController::class, 'alerta'])->name('alerta_borrar');
 //Route::get('/post/comment/{post}', [PostController::class, 'comment'])->name('comment');
 
 Route::get('/comment/create/{post}', [CommentController::class, 'create'])->name('comment.create');

@@ -11,9 +11,12 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+    @notifyCss
 
 </head>
 <body class="border font-sans antialiased dark:bg-black dark:text-white/50 w-full">
+    <x-notify::notify />
+
     <header>
         <nav>
             <ul class="list-none flex gap-10 w-screen pl-10 pt-10 mb-10">
@@ -129,6 +132,7 @@
             </ul>
         </div>
     </footer>
+ @notifyJs
 
 </body>
 </html>
