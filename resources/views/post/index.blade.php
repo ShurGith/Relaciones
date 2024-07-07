@@ -25,4 +25,3 @@
         @endforelse
 </div>
 @endsection
-     ({{ $post->comentarios->count() }} {{ ($post->comentarios->count() > 1 )? 'comentarios' : 'comentario' }})

@@ -11,7 +11,7 @@ class Comment extends Model
 
     protected $guarded = [];
 
-    public function comentarios()
+    public function post()
     {
         return $this->hasOne(Post::class);
     }
