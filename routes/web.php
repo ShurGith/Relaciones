@@ -3,19 +3,23 @@
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-use  App\Http\Controllers\PostController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post/index', [PostController::class,'index'])->name('index');
-Route::get('/post/create', [PostController::class,'create'])->name('create');
-Route::post('/post/store', [PostController::class,'store'])->name('store');
-Route::put('/post/{post}',[PostController::class,'update'])->name('update');
-Route::get('/post/{post}/edit',[PostController::class,'edit'])->name('edit');
+Route::get('/post/index', [PostController::class, 'index'])->name('index');
+Route::get('/post/create', [PostController::class, 'create'])->name('create');
+Route::post('/post/store', [PostController::class, 'store'])->name('store');
+Route::put('/post/{post}', [PostController::class, 'update'])->name('update');
+Route::get('/post/{post}/edit', [PostController::class, 'edit'])->name('edit');
+Route::get('/post/destroy/{post}', [PostController::class, 'destroy'])->name('destroy');
+//Route::get('/post/comment/{post}', [PostController::class, 'comment'])->name('comment');
 
-
+Route::get('/comment/create/{post}', [CommentController::class, 'create'])->name('comment.create');
+Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
 //Route::resource('post', PostController::class);
 
 

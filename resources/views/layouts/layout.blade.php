@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ $page_title }}</title>
+
+    <title>{{ isset($page_title) ? $page_title: 'Welcome' }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -24,9 +25,11 @@
     <!-- Datos -->
     <main>
 
-        <section>
-            <h1 class="text-3xl text-black-50 pl-10 py-4 border-b-2 border-gray-300">{{ $page_title }}</h1>
-            @yield('content')
+        <section class="w-full flex flex-col justify-center">
+            <h1 class="text-3xl text-black-50 pl-10 py-4 border-b-2 border-gray-300">{{ isset($page_title) ? $page_title: 'Welcome'  }}</h1>
+           <div class="w-full flex justify-center order">
+                @yield('content')
+            </div>
         </section>
 
     </main>
