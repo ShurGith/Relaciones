@@ -13,29 +13,22 @@ class PostController extends Controller
         return view('post.index', compact('posts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view("post.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         Post::create($request->all());
         return redirect()->route("index");
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view('post.show', compact('post'));
     }
     public function edit(Post $post)
     {
@@ -43,18 +36,12 @@ class PostController extends Controller
         return view("post.edit", compact("post"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Post $post)
     {
         $post->update($request->all());
         return redirect()->route("index");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Post $post)
     {
         //
