@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        //   $posts = Post::all();
+        $posts = DB::table('posts')->paginate(10);
+
+
         return view('post.index', compact('posts'));
     }
 
@@ -44,7 +48,8 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->back();
+        //eturn redirect()->back();
+        return redirect()->route('index')->with('success', $post->id);
     }
 
     public function alerta(Request $request, Post $post)

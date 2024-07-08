@@ -1,31 +1,16 @@
 {{-- Message --}}
 
-@if (Session::has('alerta'))
-	<div class="flex flex-row justify-end items-center" role="alert">
-		<strong>¿Seguro que quieres eliminar este Post?</strong> {{-- session('alerta') --}}
-		<svg onClick="window.location.reload();" class="cursor-pointer icon icon-tabler icons-tabler-outline icon-tabler-circle-x" fill="none" height="36"
-			stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="#0b38ea" viewBox="0 0 24 24" width="36"
+@if (Session::has('success'))
+	<div class="flex w-1/2 flex-col items-center justify-center gap-2 rounded-b-lg bg-lime-200 py-4">
+		<h2 class="font-bold">Se ha realizado la operación de eliminado correctamente</h2> {{-- session('success') --}}
+		<button class="flex flex-col items-center justify-center font-bold" onClick="window.location.reload();">Aceptar
+		<svg class="icon icon-tabler icons-tabler-outline icon-tabler-thumb-up" fill="none" height="36"
+			stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" stroke="#0b77ea" viewBox="0 0 24 24" width="36"
 			xmlns="http://www.w3.org/2000/svg">
 			<path d="M0 0h24v24H0z" fill="none" stroke="none" />
-			<path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-			<path d="M10 10l4 4m0 -4l-4 4" />
+			<path
+				d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3" />
 		</svg>
-		<form action="{{ route('destroy', session('alerta')) }}" class="mt-2" method="POST">
-			@csrf
-			@method('DELETE')
-			<button type="submit">
-				<svg class="icon icon-tabler icons-tabler-outline icon-tabler-trash" fill="none" height="36"
-					stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="#ea0b0b" viewBox="0 0 24 24" width="36"
-					xmlns="http://www.w3.org/2000/svg">
-					<path d="M0 0h24v24H0z" fill="none" stroke="none" />
-					<path d="M4 7l16 0" />
-					<path d="M10 11l0 6" />
-					<path d="M14 11l0 6" />
-					<path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-					<path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-				</svg>
-			</button>
-		</form>
-
+    </button>
 	</div>
 @endif
