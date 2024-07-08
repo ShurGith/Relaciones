@@ -12,11 +12,11 @@
 			<div class="flex items-center gap-2 py-1 border-b pb-2">
 				<div class="w-2/3">
 					<a href="{{ route('show', $post->id) }}">{{ $post->title }}</a>
-					{{-- @if ($post->comentarios->count() > 0)
+					@if ($post->comments->count() !== 0)
 						<span class="text-xs">
-							{{ '(' . $post->comentarios->count() . ' comentario' }}{{ $post->comentarios->count() > 1 ? 's)' : ')' }}
+							{{ '(' . $post->comments->count() . ' comentario' }}{{ $post->comments->count() > 1 ? 's)' : ')' }}
 						</span>
-					@endif --}}
+					@endif
 				</div>
 				<a class="rounded bg-green-500 px-4 py-1 text-white" href="{{ route('comment.create', $post->id) }}">Comentar</a>
 				<a class="rounded bg-blue-500 px-4 py-1 text-white" href="{{ route('edit', $post->id) }}">Editar</a>
@@ -36,6 +36,7 @@
 		@endforelse
 			<div>
 			    {{ $posts->links() }}
+
 
 			</div>
 

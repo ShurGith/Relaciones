@@ -10,14 +10,14 @@
     <div class="flex w-full justify-center py-20">
         <a class="w-min rounded-lg bg-blue-500 px-4 py-2 text-white" href="{{ route('edit', $post->id) }}">Editar</a>
     </div>
-    @if ($post->comentarios->count() !== 0)
+    @if ($post->comments->count() !== 0)
     <div class="w-5/6">
         <div class="flex w-4/5 gap-1">
-            <h3 class="text-md font-bold underline underline-offset-8">Comentarios</h3>
-            <span class="text-xs">({{ $post->comentarios->count() }})</span>
+            <h3 class="text-md font-bold underline underline-offset-8">Comments</h3>
+            <span class="text-xs">({{ $post->comments->count() }})</span>
         </div>
         <!-- INICIO DEL COMENTARIO EN TEXTO -->
-        @foreach ($post->comentarios as $comment)
+        @foreach ($post->comments as $comment)
         <div class="border-b border-gray-200 py-4">
             {{ $comment->content }}
             <!-- BOTONES DE MANIOBRA -->
