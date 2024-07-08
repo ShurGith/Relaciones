@@ -34,14 +34,12 @@
 		@empty
 			"No hay datos"
 		@endforelse
-			<div>
-			    {{ $posts->links() }}
-
-
-			</div>
+	<div>
+	    {{ $posts->links() }}
 
 	</div>
 
+	</div>
 @endsection
 <script>
 	function funcBtnDescartar(ele) {
@@ -59,3 +57,4 @@
 		ele.classList.toggle('hidden')
 	}
 </script>
+
