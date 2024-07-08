@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="icon" type="image/png" href="{{ asset('/images/favicon.png') }}">
 
 	<title>{{ isset($page_title) ? $page_title : 'Welcome' }}</title>
 
@@ -18,14 +19,16 @@
 
 	<header>
 		<nav>
-					<ul class="mb-10 flex w-screen justify-end list-none gap-10 pl-10 pt-10 pr-20">
-						<li><a
-								class="border-secondary text-secondary disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5 inline-flex items-center justify-center rounded-md border px-7 py-3 text-center text-base font-medium hover:bg-[#E8FBF6]"
-								href="{{ route('index') }}">Inicio</a></li>
-						<li><a
-								class="border-secondary text-secondary disabled:bg-gray-3 disabled:border-gray-3 disabled:text-dark-5 inline-flex items-center justify-center rounded-md border px-7 py-3 text-center text-base font-medium hover:bg-[#E8FBF6]"
-								href="{{ route('create') }}">Nuevo Post</a></li>
-					</ul>
+			<ul class="mb-10 flex w-screen list-none justify-end gap-2 pl-10 pr-20 pt-10">
+				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
+				href="{{ route('index') }}">Inicio</a></li>
+				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
+				href="{{ route('create') }}">Nuevo Post</a></li>
+				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
+				href="{{ route('user.index') }}">Users</a></li>
+				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
+				href="{{ route('user.login') }}">Login</a></li>
+			</ul>
 		</nav>
 	</header>
 	<!-- Datos -->
@@ -33,7 +36,8 @@
 
 		<section class="flex w-full flex-col justify-center">
 			<h1 class="text-black-50 border-b-2 border-gray-300 py-4 pl-10 text-3xl">
-				{{ isset($page_title) ? $page_title : 'Welcome' }}</h1>
+				{{ isset($page_title) ? $page_title : 'Welcome' }}
+			</h1>
 			<div class="order flex w-full justify-center">
 				@yield('content')
 			</div>
@@ -110,7 +114,8 @@
 
 			<ul class="mt-12 flex justify-center gap-6 md:gap-8">
 				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer" target="_blank">
+					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer"
+						target="_blank">
 						<span class="sr-only">Facebook</span>
 						<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 							<path clip-rule="evenodd"
@@ -121,7 +126,8 @@
 				</li>
 
 				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer" target="_blank">
+					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer"
+						target="_blank">
 						<span class="sr-only">Instagram</span>
 						<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 							<path clip-rule="evenodd"
@@ -132,7 +138,8 @@
 				</li>
 
 				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer" target="_blank">
+					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer"
+						target="_blank">
 						<span class="sr-only">Twitter</span>
 						<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 							<path
@@ -141,7 +148,8 @@
 					</a>
 				</li>
 				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer" target="_blank">
+					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer"
+						target="_blank">
 						<span class="sr-only">GitHub</span>
 						<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 							<path clip-rule="evenodd"
@@ -152,7 +160,8 @@
 				</li>
 
 				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer" target="_blank">
+					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer"
+						target="_blank">
 						<span class="sr-only">Dribbble</span>
 						<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 							<path clip-rule="evenodd"

@@ -1,15 +1,25 @@
 <?php
 /*
-use App\Models\Comment;
 use App\Models\Post;
+use App\Models\Comment;
 */
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/user/index', [UserController::class, 'index'])->name('user.index');
+Route::get('/user/{id}/show', [UserController::class, 'show'])->name('user.show');
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
+Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
+Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::delete('/user/destroy/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+Route::get('/login', [UserController::class, 'login'])->name('user.login');
 
 Route::get('/post/index', [PostController::class, 'index'])->name('index');
 Route::get('/post/{id}/show', [PostController::class, 'show'])->name('show');
