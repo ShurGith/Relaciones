@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         //$posts = Post::all();
-        $posts = Post::paginate(10);
+        $posts = Post::paginate($request->get('per_page', 20));
         return view('post.index', compact('posts'));
     }
 
