@@ -15,29 +15,35 @@
 
 </head>
 
-<body class="w-full border font-sans antialiased dark:bg-black dark:text-white/50">
-
+<body class="font-sans antialiased dark:bg-black dark:text-white/50">
 	<header>
-		<nav>
-			<ul class="mb-10 flex w-screen list-none justify-end gap-2 pl-10 pr-20 pt-10">
-				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
-				href="{{ route('index') }}">Inicio</a></li>
-				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
-				href="{{ route('create') }}">Nuevo Post</a></li>
-				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
-				href="{{ route('user.index') }}">Users</a></li>
-				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
-				href="{{ route('user.login') }}">Login</a></li>
-			</ul>
-		</nav>
+    	<div class="flex justify-between items-center bg-gray-400 h-32 px-30">
+        	<div class="pl-60">
+        	    <img src="{{ asset('images/laravelico.png') }}"  class="w-16">
+        	</div>
+    		<div class="flex flex-col gap-6 items-end">
+    		  <a href="{{ route('user.login') }}"><img src="{{ asset('images/user.png') }}" class="mr-4 w-8"></a>
+        		<nav>
+        			<ul class="mb-2 flex items-end justify-end gap-2 mr-10 mt-4 list-none h-full">
+        				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
+        				href="{{ route('index') }}">Inicio</a></li>
+        				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
+        				href="{{ route('create') }}">Nuevo Post</a></li>
+        				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
+        				href="{{ route('user.index') }}">Users</a></li>
+        				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
+        				href="{{ route('user.login') }}">Login</a></li>
+        			</ul>
+        		</nav>
+    		</div>
+    	</div>
 	</header>
 	<!-- Datos -->
 	<main>
-
 		<section class="flex w-full flex-col justify-center">
-			<h1 class="text-black-50 border-b-2 border-gray-300 py-4 pl-10 text-3xl">
-				{{ isset($page_title) ? $page_title : 'Welcome' }}
-			</h1>
+			<div class="flex w-full bg-gray-400 justify-center border-b-2 border-slate-500 ">
+    			<h1 class="text-white py-4 pl-10 text-3xl">{{ isset($page_title) ? $page_title : 'Welcome' }}</h1>
+            </div>
 			<div class="order flex w-full justify-center">
 				@yield('content')
 			</div>
