@@ -15,7 +15,7 @@ class CommentFactory extends Factory
     {
         return [
             'content' => fake()->paragraph(2),
-            'post_id' => fake()->numberBetween(30, 40),
+            'post_id' => fake()->numberBetween(1, 30),
         ];
     }
     public function unverified(): static

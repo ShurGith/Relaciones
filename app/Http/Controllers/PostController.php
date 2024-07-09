@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class PostController extends Controller
         return view("post.create");
     }
 
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
         Post::create($request->all());
         return redirect()->route("index");

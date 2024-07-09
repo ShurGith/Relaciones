@@ -16,6 +16,11 @@
                     Título
                 </span>
             </label>
+            @error('title')
+               <p class="text-red-500">
+                 {{ $message }}
+               </p>
+            @enderror
         </div>
         <div class="flex flex-col gap-2 pb-6">
             <label class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600" for="contenido">
@@ -24,6 +29,11 @@
                     Contenido
                 </span>
             </label>
+            @error('content')
+               <p class="text-red-500">
+                 {{ $message }}
+               </p>
+            @enderror
         </div>
         <div class="flex justify-center">
             <input class="cursor-pointer inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500" type="submit" value="Enviar">
