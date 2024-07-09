@@ -17,7 +17,7 @@
                 </span>
             </label>
             @error('title')
-               <p class="text-red-500">
+               <p class="text-red-500 text-xs">
                  {{ $message }}
                </p>
             @enderror
@@ -30,7 +30,7 @@
                 </span>
             </label>
             @error('content')
-               <p class="text-red-500">
+               <p class="text-red-500 text-xs">
                  {{ $message }}
                </p>
             @enderror
