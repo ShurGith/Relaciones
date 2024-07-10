@@ -34,20 +34,18 @@ class PostController extends Controller
     }
     public function edit(Post $post)
     {
-
         return view("post.edit", compact("post"));
     }
 
     public function update(Request $request, Post $post)
     {
         $post->update($request->all());
-        return redirect()->route("index");
+        return redirect()->route("show", $post->id);
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
-        //eturn redirect()->back();
         return redirect()->route('index')->with('success', $post->id);
     }
 

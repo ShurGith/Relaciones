@@ -4,6 +4,7 @@
     'esPar' => 0,
     'paginas' => request()->per_page,
    'selector' => ['pasos' => 5, 'seleccion' => 7, 'metodo' => 'GET'],
+    //App::setLocale(Config('locale')), App::setLocale(Config('app.fallback_locale')),
 ])
 
 @extends('layouts.layout')
