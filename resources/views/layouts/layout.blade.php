@@ -1,29 +1,39 @@
+@props([
+    'imgNoLogin' => '/images/un-login-man.png',
+    'imgLogin' => '/images/login-man.png',
+])
+
+{{-- {{ dd(Auth::check()) }} --}}
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="icon" type="image/png" href="{{ asset('/images/favicon.png') }}">
-
 	<title>{{ isset($page_title) ? $page_title : 'Welcome' }}</title>
-
 	<!-- Fonts -->
 	<link href="https://fonts.bunny.net" rel="preconnect">
     <link href="https://fonts.bunny.net/css?family=abeezee:400i|akronim:400|amita:400,700|cherry-swash:400" rel="stylesheet" />
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="stylesheet" href="{{ asset('estilos.css') }}" />
-
 </head>
 
 <body class="antialiased dark:bg-black dark:text-white/50">
-	<header>
+	<header class="transition ease-in-out ">
     	<div class="flex justify-between items-center bg-gray-400 h-32 px-30">
-        	<div class="pl-60">
-        	    <img src="{{ asset('images/laravelico.png') }}"  class="w-16">
+        	<div class="pl-60 realative">
+        	    <img src="{{ asset('images/portatil grande.jpg') }}"  class="w-56 h-40 absolute top-5">
         	</div>
     		<div class="flex flex-col gap-6 items-end">
-    		  <a href="{{ route('user.login') }}"><img src="{{ asset('images/user.png') }}" class="mr-4 w-8"></a>
+    		  {{-- <a href="{{ route('user.login') }}"><img src="{{ asset( Auth::check() ? $imgNoLogin: $imgLogin) }}" class="mt-2 mr-4 w-12"></a> --}}
+    		  <a href="{{ route('user.login') }}">
+    		  @if(Auth::check())
+    		       <img src="{{ asset($imgNoLogin) }}" class="mt-2 mr-4 w-12">
+    		       @else
+    		       <img src="{{ asset($imgNoLogin) }}" class="mt-2 mr-4 w-12">
+    		       @endif
+    		    </a>
         		<nav>
         			<ul class="mb-2 flex items-end justify-end gap-2 mr-10 mt-4 list-none h-full">
         				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
@@ -38,13 +48,13 @@
         		</nav>
     		</div>
     	</div>
+			<div class="flex w-full bg-gray-400 justify-center border-b-2 border-slate-500 ">
+    			<h1 class="text-white py-4 pl-10 text-3xl">{{ isset($page_title) ? $page_title : 'Welcome' }}</h1>
+            </div>
 	</header>
 	<!-- Datos -->
 	<main>
 		<section class="flex w-full flex-col justify-center">
-			<div class="flex w-full bg-gray-400 justify-center border-b-2 border-slate-500 ">
-    			<h1 class="text-white py-4 pl-10 text-3xl">{{ isset($page_title) ? $page_title : 'Welcome' }}</h1>
-            </div>
 			<div class="order flex w-full justify-center">
 				@yield('content')
 			</div>

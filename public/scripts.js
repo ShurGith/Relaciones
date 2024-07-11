@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', ()=>{
+    const header = document.querySelector('header')
+
     //# En post/index -- post/show
 
      funcBtnDescartar = function(ele) {
@@ -16,5 +18,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
         ele.nextElementSibling.classList.toggle('hidden')
         ele.classList.toggle('hidden')
     }
-    console.log('Dentro')
+
+window.addEventListener('scroll', ()=>{
+    winScrollY = window.scrollY
+    if(winScrollY > 200)
+        header.classList.add('sticky', 'top-0')
+        else
+            header.classList.remove('sticky')
 })
+})
+
