@@ -7,50 +7,56 @@
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="icon" type="image/png" href="{{ asset('/images/favicon.png') }}">
+	<link href="{{ asset('/images/favicon.png') }}" rel="icon" type="image/png">
 	<title>{{ isset($page_title) ? $page_title : 'Welcome' }}</title>
 	<!-- Fonts -->
 	<link href="https://fonts.bunny.net" rel="preconnect">
-    <link href="https://fonts.bunny.net/css?family=abeezee:400i|akronim:400|amita:400,700|cherry-swash:400" rel="stylesheet" />
+	<link href="https://fonts.bunny.net/css?family=abeezee:400i|akronim:400|amita:400,700|cherry-swash:400"
+		rel="stylesheet" />
+	<link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+	<!-- Scripts -->
+	{{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 	<script src="https://cdn.tailwindcss.com"></script>
-	<link rel="stylesheet" href="{{ asset('estilos.css') }}" />
+	<link href="{{ asset('estilos.css') }}" rel="stylesheet" />
 </head>
 
 <body class="antialiased dark:bg-black dark:text-white/50">
-	<header class="transition ease-in-out ">
-    	<div class="flex justify-between items-center bg-gray-400 h-32 px-30">
-        	<div class="pl-60 realative">
-        	    <img src="{{ asset('images/portatil grande.jpg') }}"  class="w-56 h-40 absolute top-5">
-        	</div>
-    		<div class="flex flex-col gap-6 items-end">
-    		  {{-- <a href="{{ route('user.login') }}"><img src="{{ asset( Auth::check() ? $imgNoLogin: $imgLogin) }}" class="mt-2 mr-4 w-12"></a> --}}
-    		  <a href="{{ route('user.login') }}">
-    		  @if(Auth::check())
-    		       <img src="{{ asset($imgNoLogin) }}" class="mt-2 mr-4 w-12">
-    		       @else
-    		       <img src="{{ asset($imgNoLogin) }}" class="mt-2 mr-4 w-12">
-    		       @endif
-    		    </a>
-        		<nav>
-        			<ul class="mb-2 flex items-end justify-end gap-2 mr-10 mt-4 list-none h-full">
-        				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
-        				href="{{ route('index') }}">Inicio</a></li>
-        				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
-        				href="{{ route('create') }}">Nuevo Post</a></li>
-        				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
-        				href="{{ route('user.index') }}">Users</a></li>
-        				<li><a class="border-2 border-blue-900 rounded-md  text-black border-0 py-1 px-3 hover:text-white hover:bg-indigo-600 rounded text-md"
-        				href="{{ route('user.login') }}">Login</a></li>
-        			</ul>
-        		</nav>
-    		</div>
-    	</div>
-			<div class="flex w-full bg-gray-400 justify-center border-b-2 border-slate-500 ">
-    			<h1 class="text-white py-4 pl-10 text-3xl">{{ isset($page_title) ? $page_title : 'Welcome' }}</h1>
-            </div>
+	<header class="transition ease-in-out">
+		<div class="px-30 flex h-32 items-center justify-between bg-gray-400">
+			<div class="realative pl-60">
+				<img class="absolute top-5 h-40 w-56" src="{{ asset('images/portatil grande.jpg') }}">
+			</div>
+			<div class="flex flex-col items-end gap-6">
+				{{-- <a href="{{ route('user.login') }}"><img src="{{ asset( Auth::check() ? $imgNoLogin: $imgLogin) }}" class="mt-2 mr-4 w-12"></a> --}}
+				<a href="{{ route('login') }}">
+					@if (Auth::check())
+						<img class="mr-4 mt-2 w-12" src="{{ asset($imgNoLogin) }}">
+					@else
+						<img class="mr-4 mt-2 w-12" src="{{ asset($imgNoLogin) }}">
+					@endif
+				</a>
+				<nav>
+					<ul class="mb-2 mr-10 mt-4 flex h-full list-none items-end justify-end gap-2">
+						<li><a
+								class="text-md rounded rounded-md border-0 border-2 border-blue-900 px-3 py-1 text-black hover:bg-indigo-600 hover:text-white"
+								href="{{ route('index') }}">Inicio</a></li>
+						<li><a
+								class="text-md rounded rounded-md border-0 border-2 border-blue-900 px-3 py-1 text-black hover:bg-indigo-600 hover:text-white"
+								href="{{ route('create') }}">Nuevo Post</a></li>
+						<li><a
+								class="text-md rounded rounded-md border-0 border-2 border-blue-900 px-3 py-1 text-black hover:bg-indigo-600 hover:text-white"
+								href="{{ route('user.index') }}">Users</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="flex w-full justify-center border-b-2 border-slate-500 bg-gray-400">
+			<h1 class="py-4 pl-10 text-3xl text-white">{{ isset($page_title) ? $page_title : 'Welcome' }}</h1>
+		</div>
 	</header>
 	<!-- Datos -->
 	<main>
@@ -104,35 +110,15 @@
 			</p>
 
 			<ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
-				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#"> About </a>
-				</li>
-
-				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Careers </a>
-				</li>
-
-				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#"> History </a>
-				</li>
-
-				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Services </a>
-				</li>
-
-				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Projects </a>
-				</li>
-
-				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Blog </a>
-				</li>
+				<li><a class="text-gray-700 transition hover:text-gray-700/75" href="#"> About </a></li>
+				<li><a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Careers </a></li>
+				<li><a class="text-gray-700 transition hover:text-gray-700/75" href="#"> History </a></li>
+				<li><a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Services </a></li>
+				<li><a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Projects </a></li>
+				<li><a class="text-gray-700 transition hover:text-gray-700/75" href="#"> Blog </a></li>
 			</ul>
-
 			<ul class="mt-12 flex justify-center gap-6 md:gap-8">
-				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer"
-						target="_blank">
+				<li><a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer" target="_blank">
 						<span class="sr-only">Facebook</span>
 						<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 							<path clip-rule="evenodd"
@@ -141,10 +127,8 @@
 						</svg>
 					</a>
 				</li>
-
 				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer"
-						target="_blank">
+					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer" target="_blank">
 						<span class="sr-only">Instagram</span>
 						<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 							<path clip-rule="evenodd"
@@ -153,10 +137,8 @@
 						</svg>
 					</a>
 				</li>
-
 				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer"
-						target="_blank">
+					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer" target="_blank">
 						<span class="sr-only">Twitter</span>
 						<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 							<path
@@ -165,8 +147,7 @@
 					</a>
 				</li>
 				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer"
-						target="_blank">
+					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer" target="_blank">
 						<span class="sr-only">GitHub</span>
 						<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 							<path clip-rule="evenodd"
@@ -177,8 +158,7 @@
 				</li>
 
 				<li>
-					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer"
-						target="_blank">
+					<a class="text-gray-700 transition hover:text-gray-700/75" href="#" rel="noreferrer" target="_blank">
 						<span class="sr-only">Dribbble</span>
 						<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 							<path clip-rule="evenodd"
@@ -190,7 +170,7 @@
 			</ul>
 		</div>
 	</footer>
-<script src="{{ asset('scripts.js') }}"></script>
+	<script src="{{ asset('scripts.js') }}"></script>
 </body>
 
 </html>

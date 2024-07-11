@@ -72,3 +72,6 @@ Route::get('pub', function(){
     return 'El Comentario ha sido creado';
 });
 */
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
