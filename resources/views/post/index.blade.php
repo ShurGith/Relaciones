@@ -21,15 +21,15 @@
 						<option {{ $paginas == $i ? 'selected  aria-selected=“true”' : '' }} value="{{ $i }}">{{ $i }}</option>
 					@endfor
 				</select>
-				<input class=" px-4 ml-2 bg-slate-400 text-white cursor-pointer rounded border border-slate-400" type="submit" value="Enviar">
+				<button class=" px-4 ml-2 bg-slate-400 text-white cursor-pointer rounded border border-slate-400" type="submit">Enviar</button>
 			</form>
 		</div>
-		<!-- Formulario Elementos por Página -->
+		<!-- Final Formulario Elementos por Página -->
 		<!-- Salida de Registros -->
 		@forelse($posts as $post)
 			<?php $esPar++; ?>
 			<div class="{{ $esPar % 2 == 0 ? 'bg-slate-100 ' : 'bg-slate-200 ' }}pl-4 flex items-center gap-2 border-b py-1 pb-2">
-				<div class="w-2/3">
+				<div class="w-full py-2">
 					<a href="{{ route('show', $post->id) }}">{{ $post->title }}</a>
 					@if ($post->comments->count() !== 0)
 						<span class="text-xs">
@@ -38,7 +38,7 @@
 					@endif
 				</div>
 				<!-- Botones de Acción -->
-				<div class="flex w-full justify-end gap-3">
+				<div class="flex w-full justify-end gap-3 pr-2">
 					<a class="rounded bg-green-500 px-4 py-1 text-white text-xs" href="{{ route('comment.create', $post->id) }}">Comentar</a>
 					<a class="rounded bg-blue-500 px-4 py-1 text-white text-xs" href="{{ route('edit', $post->id) }}">Editar</a>
 					<a class="btnBorrar cursor-pointer rounded bg-red-500 px-4 py-1 text-white text-xs" onclick="funcBtnBorrar(this)">Borrar</a>

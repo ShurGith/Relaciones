@@ -10,12 +10,13 @@
 
 	<!-- Fonts -->
 	<link href="https://fonts.bunny.net" rel="preconnect">
-	<link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=abeezee:400i|akronim:400|amita:400,700|cherry-swash:400" rel="stylesheet" />
 	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="{{ asset('estilos.css') }}" />
 
 </head>
 
-<body class="font-sans antialiased dark:bg-black dark:text-white/50">
+<body class="antialiased dark:bg-black dark:text-white/50">
 	<header>
     	<div class="flex justify-between items-center bg-gray-400 h-32 px-30">
         	<div class="pl-60">
@@ -179,6 +180,7 @@
 			</ul>
 		</div>
 	</footer>
+<script src="{{ asset('scripts.js') }}"></script>
 </body>
 
 </html>

@@ -6,8 +6,18 @@
 @section('content')
 <div class="flex flex-col w-4/5 items-center">
     <!-- BOTON EDITAR -->
-    <div class="flex w-full justify-start py-4">
-        <a class="w-min text-xs rounded-lg bg-blue-500 px-4 py-2 text-white" href="{{ route('edit', $post->id) }}">Editar</a>
+    <div class="flex w-full justify-end py-4 gap-2">
+        <a class="text-xs rounded bg-blue-500 px-4 py-2 text-white" href="{{ route('edit', $post->id) }}">Editar</a>
+        <a class="btnBorrar text-xs rounded bg-red-500 px-4 py-2 text-white" onclick="funcBtnBorrar(this)">Borrar</a>
+		            <!-- Botones Confirmación Ocultos -->
+					<div class="formulario hidden flex items-center justify-center gap-2">
+						<form action="{{ route('destroy', $post->id) }}" class="m-0" method="POST">
+							@csrf
+							@method('DELETE')
+							<button class="text-xs rounded bg-red-500 px-4 py-2 text-white" type="submit">Confirmar</button>
+						</form>
+						<button class="text-xs rounded bg-amber-500 px-4 py-2 text-white" onClick="funcBtnDescartar(this)">Descartar</button>
+					</div>
     </div>
     <!-- INICIO DEL POST EN TEXTO -->
     <div class="my-10 w-10/12 flex justify-start">
