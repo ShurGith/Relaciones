@@ -3,7 +3,7 @@
 use App\Models\Post;
 use App\Models\Comment;
 */
-namespace App\Http\Controllers\Auth;
+//namespace App\Http\Controllers\Auth;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -14,8 +14,6 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
-//Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/user/index', [UserController::class, 'index'])->name('user.index');
 Route::get('/user/{id}/show', [UserController::class, 'show'])->name('user.show');
@@ -45,6 +43,8 @@ Route::delete('/comment/destroy/{comment}', [CommentController::class, 'destroy'
 
 
 
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 /*
 Route::get('prueba', function () {
