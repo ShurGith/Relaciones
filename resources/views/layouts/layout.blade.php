@@ -1,8 +1,8 @@
-
 {{-- {{ dd(Auth::check()) }} --}}
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
@@ -18,22 +18,21 @@
 	<link href="{{ asset('estilos.css') }}" rel="stylesheet" />
 </head>
 <!-- BODY INICIO -->
+
 <body class="antialiased dark:bg-black dark:text-white/50">
-	<header class="transition ease-in-out">
-	<x-nav></x-nav>
-	<x-nav2></x-nav2>
-		<div class="flex w-full justify-center border-b-2 border-slate-500">
-			<h1 class="py-4 pl-10 text-3xl text-white">{{ isset($page_title) ? $page_title : 'Welcome' }}</h1>
-		</div>
+	<header class="transition ease-in-out flex flex-row">
+		<x-nav></x-nav>
 	</header>
+	<div class="flex w-full justify-center ">
+		<h1 class="py-4 pl-10 text-3xl text-slate-500">{{ isset($page_title) ? $page_title : 'Welcome' }}</h1>
+	</div>
 	<!-- Datos -->
-    <main class="py-4">
+	<main class="py-4">
 		<section class="flex w-full flex-col justify-center">
 			<div class="order flex w-full justify-center">
 				@yield('content')
 			</div>
 		</section>
-
 	</main>
 	<footer class="mt-40 bg-gray-100">
 		<div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
@@ -140,4 +139,5 @@
 	</footer>
 	<script src="{{ asset('scripts.js') }}"></script>
 </body>
+
 </html>

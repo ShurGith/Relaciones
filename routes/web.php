@@ -22,7 +22,7 @@ Route::post('/user/store', [UserController::class, 'store'])->name('user.store')
 Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
 Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::delete('/user/destroy/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-Route::get('/auth/login', [UserController::class, 'login'])->name('user.login');
+Route::get('/auth/login', [UserController::class, 'login'])->name('login');
 
 Route::get('/post/index', [PostController::class, 'index'])->name('index');
 Route::get('/post/{id}/show', [PostController::class, 'show'])->name('show');
