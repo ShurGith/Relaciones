@@ -1,13 +1,8 @@
-@props([
-    'imgNoLogin' => '/images/un-login-man.png',
-    'imgLogin' => '/images/login-man.png',
-])
 
 {{-- {{ dd(Auth::check()) }} --}}
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
@@ -15,51 +10,24 @@
 	<title>{{ isset($page_title) ? $page_title : 'Welcome' }}</title>
 	<!-- Fonts -->
 	<link href="https://fonts.bunny.net" rel="preconnect">
-	<link href="https://fonts.bunny.net/css?family=abeezee:400i|akronim:400|amita:400,700|cherry-swash:400"
+	<link href="https://fonts.bunny.net/css?family=abeezee:400i|akronim:400|amita:400,700|cherry-swash:400|Nunito"
 		rel="stylesheet" />
-	<link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 	<!-- Scripts -->
-	{{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+	@vite(['resources/sass/app.scss', 'resources/js/app.js'])
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link href="{{ asset('estilos.css') }}" rel="stylesheet" />
 </head>
-
+<!-- BODY INICIO -->
 <body class="antialiased dark:bg-black dark:text-white/50">
 	<header class="transition ease-in-out">
-		<div class="px-30 flex h-32 items-center justify-between bg-gray-400">
-			<div class="realative pl-60">
-				<img class="absolute top-5 h-40 w-56" src="{{ asset('images/portatil grande.jpg') }}">
-			</div>
-			<div class="flex flex-col items-end gap-6">
-				{{-- <a href="{{ route('user.login') }}"><img src="{{ asset( Auth::check() ? $imgNoLogin: $imgLogin) }}" class="mt-2 mr-4 w-12"></a> --}}
-				<a href="{{ route('login') }}">
-					@if (Auth::check())
-						<img class="mr-4 mt-2 w-12" src="{{ asset($imgNoLogin) }}">
-					@else
-						<img class="mr-4 mt-2 w-12" src="{{ asset($imgNoLogin) }}">
-					@endif
-				</a>
-				<nav>
-					<ul class="mb-2 mr-10 mt-4 flex h-full list-none items-end justify-end gap-2">
-						<li><a
-								class="text-md rounded rounded-md border-0 border-2 border-blue-900 px-3 py-1 text-black hover:bg-indigo-600 hover:text-white"
-								href="{{ route('index') }}">Inicio</a></li>
-						<li><a
-								class="text-md rounded rounded-md border-0 border-2 border-blue-900 px-3 py-1 text-black hover:bg-indigo-600 hover:text-white"
-								href="{{ route('create') }}">Nuevo Post</a></li>
-						<li><a
-								class="text-md rounded rounded-md border-0 border-2 border-blue-900 px-3 py-1 text-black hover:bg-indigo-600 hover:text-white"
-								href="{{ route('user.index') }}">Users</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-		<div class="flex w-full justify-center border-b-2 border-slate-500 bg-gray-400">
+	<x-nav></x-nav>
+	<x-nav2></x-nav2>
+		<div class="flex w-full justify-center border-b-2 border-slate-500">
 			<h1 class="py-4 pl-10 text-3xl text-white">{{ isset($page_title) ? $page_title : 'Welcome' }}</h1>
 		</div>
 	</header>
 	<!-- Datos -->
-	<main>
+    <main class="py-4">
 		<section class="flex w-full flex-col justify-center">
 			<div class="order flex w-full justify-center">
 				@yield('content')
@@ -172,5 +140,4 @@
 	</footer>
 	<script src="{{ asset('scripts.js') }}"></script>
 </body>
-
 </html>

@@ -3,7 +3,7 @@
 use App\Models\Post;
 use App\Models\Comment;
 */
-//namespace App\Http\Controllers\Auth;
+namespace Illuminate\Support\Facades;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -22,7 +22,7 @@ Route::post('/user/store', [UserController::class, 'store'])->name('user.store')
 Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
 Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::delete('/user/destroy/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-Route::get('/login', [UserController::class, 'login'])->name('user.login');
+Route::get('/auth/login', [UserController::class, 'login'])->name('user.login');
 
 Route::get('/post/index', [PostController::class, 'index'])->name('index');
 Route::get('/post/{id}/show', [PostController::class, 'show'])->name('show');
@@ -42,39 +42,5 @@ Route::delete('/comment/destroy/{comment}', [CommentController::class, 'destroy'
 //Route::resource('post', PostController::class);
 
 
-
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-/*
-Route::get('prueba', function () {
-    $codigo = 4;
-      Comment::create([
-    // 'title' => 'Post ' . $codigo,
-    'content' => 'Contenido del Comentario ' . $codigo,
-    'post_id' => $codigo,
-    ]);
-    return 'Comentario ' . $codigo . ' creado';
-
-    $comentario = Comment::find($codigo);
-   // $comentario
-
-    return  $comentario->post;
-});
-
-Route::get('prueba',function(){
-    $post = Post::find(2);
-
-    return $post->comentarios;
-
-});
-
-Route::get('pub', function(){
-    $post = Post::find(2);
-
-    $post->comentarios()->create([
-        'content'=>'Creado desde el Navegador',
-    ]);
-    return 'El Comentario ha sido creado';
-});
-*/
